@@ -68,14 +68,14 @@ export class InputTypeComposer {
 
   public gqType: GraphQLInputObjectTypeExtended;
 
+  public constructor(gqType: GraphQLInputObjectType);
+
   public static create(typeDef: InputTypeComposerDefinition): InputTypeComposer;
 
   public static createTemp<TContext = any>(
     typeDef: InputTypeComposerDefinition,
-    _sc?: SchemaComposer<TContext>
+    _sc?: SchemaComposer<TContext>,
   ): InputTypeComposer;
-
-  public constructor(gqType: GraphQLInputObjectType);
 
   // -----------------------------------------------
   // Field methods

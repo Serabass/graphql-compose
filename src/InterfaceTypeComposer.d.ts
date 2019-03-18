@@ -58,20 +58,21 @@ export type InterfaceTypeComposerDefinition<TSource, TContext> =
 
 export class InterfaceTypeComposer<TSource = any, TContext = any> {
   public sc: SchemaComposer<TContext>;
-
   protected gqType: GraphQLInterfaceTypeExtended<TSource, TContext>;
+  public constructor(
+    gqType: GraphQLInterfaceType,
+    sc: SchemaComposer<TContext>,
+  );
 
   public static create<TSrc = any, TCtx = any>(
     typeDef: InterfaceTypeComposerDefinition<TSrc, TCtx>,
-    sc: SchemaComposer<TCtx>
+    sc: SchemaComposer<TCtx>,
   ): InterfaceTypeComposer<TSrc, TCtx>;
 
   public static createTemp<TSrc = any, TCtx = any>(
     typeDef: InterfaceTypeComposerDefinition<TSrc, TCtx>,
-    _sc?: SchemaComposer<TCtx>
+    _sc?: SchemaComposer<TCtx>,
   ): InterfaceTypeComposer<TSrc, TCtx>;
-
-  public constructor(gqType: GraphQLInterfaceType, sc: SchemaComposer<TContext>);
 
   // -----------------------------------------------
   // Field methods
